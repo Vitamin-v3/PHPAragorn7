@@ -33,6 +33,7 @@ function f_view_table ( $pdo, $db, $title, $title_comment)
         }
 ?>
 
+
         <div class="main-content">
         <div class="page-content">
             <?php include_once "partials/page-title.php" ?>
