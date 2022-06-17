@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!doctype html>
 <html lang="ru">
 
@@ -8,8 +10,8 @@
     <?php include "partials/head-css.php" ?>
 </head>
 
-
 <body>
+
 
     <!-- Begin page -->
     <div id="layout-wrapper">

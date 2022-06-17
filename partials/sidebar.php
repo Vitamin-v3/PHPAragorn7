@@ -1,4 +1,5 @@
 <?php session_start();?>
+
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
 
@@ -14,20 +15,18 @@
                 <div class="user-info">
                     <h5 class="mt-3 font-size-16 text-white">
                         <?
-                        if(isset($_POST["Login_manager"]))
+                        if(isset($_SESSION['Login_manager']))
                             {
-                                $name = $_POST["Login_manager"];
-                                echo 'asdasdAS',$name;
+                                $name = $_SESSION['Login_manager'];
+                                echo $name;
                             } 
-                                                echo '<pre>';
-                        print_r( $_POST["Login_manager"] );        
-                        echo '</pre>';
-                        ?></h5>
+
+                        ?>
+                    </h5>
                     <span class="font-size-13 text-white-50">Administrator</span>
                 </div>
             </div>
         </div>
-
 
 
         <!--- Sidemenu -->

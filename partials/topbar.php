@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">
@@ -81,7 +83,7 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/vit.jpg"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1">Vitaly</span>
+                    <span class="d-none d-xl-inline-block ms-1"><?=$_SESSION['Login_manager'];?></span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
 

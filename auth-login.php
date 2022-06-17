@@ -6,14 +6,10 @@
     if ( isset($_POST['do_login']) ) { // нажата кнопка в форме
 
         $errors = array();
-
-
         
 
         $login = $_POST['Login_manager'];                    // получение логина из формы
         $password = $_POST['Password_manager'];              // получение пароля из формы
-
-
 
 
         $sql = $pdo->prepare("SELECT * FROM `managers` WHERE Login_manager = '$login'");
@@ -27,9 +23,6 @@
             
             if( @$data['Password_manager'] == $user['Password_manager'] ) // логиним!:)
             { 
-
-              
-                
                 
 
                 // if($login == "Artyfakt")
@@ -43,12 +36,11 @@
                 //     $_POST['logged_user'] = 2;
                 // }
 
+                
+                $_SESSION['Login_manager'] = $login;
+                $_SESSION['Password_manager'] = $password;
+
                 echo '<META HTTP-EQUIV="Refresh" CONTENT="0; URL=main.php ">';
-
-
-               
-
-
 
                 exit(); // прерываем работу скрипта, чтобы забыл о прошлом
 
