@@ -7,29 +7,59 @@
 
         $errors = array();
 
-        $login = $_POST['login'];                    // получение логина из формы
-        $password = $_POST['password'];              // получение пароля из формы
 
-        $sql = $pdo->prepare("SELECT * FROM `clients_table` WHERE login = '$login'");
+        
+
+        $login = $_POST['Login_manager'];                    // получение логина из формы
+        $password = $_POST['Password_manager'];              // получение пароля из формы
+
+
+
+
+        $sql = $pdo->prepare("SELECT * FROM `managers` WHERE Login_manager = '$login'");
         $sql->execute();
         $user = $sql->fetch();
+        $names = $pdo->prepare("SELECT 'Name_manager' FROM `managers` WHERE Login_manager = 'Artyfakt'");
 
-        if( $user ) {   // если логин существует
+        if( $user ) 
+        {   // если логин существует
 
-            if( @$data['password'] == $user['password'] ) // логиним!:)
+            
+            if( @$data['Password_manager'] == $user['Password_manager'] ) // логиним!:)
             { 
 
-                $_SESSION['logged_user'] = $user;
+              
                 
-                echo '<META HTTP-EQUIV="Refresh" CONTENT="0; URL=main.php">';
+                
+
+                // if($login == "Artyfakt")
+                // {
+                //    $name_auth= "Vitaliy";
+                //    $_POST['logged_user'] = 1;
+                 //}
+                // if($login == "Alsu")
+                // {
+                //     $name_auth ="Alsu";
+                //     $_POST['logged_user'] = 2;
+                // }
+
+                echo '<META HTTP-EQUIV="Refresh" CONTENT="0; URL=main.php ">';
+
+
+               
+
+
+
                 exit(); // прерываем работу скрипта, чтобы забыл о прошлом
 
             } 
-            else {
+            else 
+            {
                 $errors[] = 'Неверно введен пароль!';
             }
         } 
-        else {
+        else 
+        {
             $errors[] = 'Пользователь с таким логином не найден!';
         }
 
@@ -47,7 +77,7 @@
 <html lang='ru'>
 
 <head>
-<?php include "partials/title-meta.php" ?>
+<?php //include "partials/title-meta.php" ?>
 <?php include "partials/head-css.php" ?>
 </head>
 
@@ -67,11 +97,11 @@
 
                                     <div class="text-center">
                                         <a href="#">
-                                            <img src="assets/images/logo-dark.png" height="22" alt="logo">
+                                            <img src="assets/images/pic.png" height="80" alt="logo">
                                         </a>
 
-                                        <h5 class="text-primary mb-2 mt-4">Welcome to BAMBEO !</h5>
-                                        <p class="text-muted">Sign in to continue to Bambeo.</p>
+                                        <h5 class="text-primary mb-2 mt-4">Welcome!</h5>
+                                        <p class="text-muted">Sign in</p>
                                     </div>
 
 
@@ -79,13 +109,13 @@
 
                                         <div class="mb-3">
                                             <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" name="login" value="<?php echo @$data['login']; ?>"
-                                                placeholder="Enter username">
+                                            <input type="text" class="form-control" id="username" name="Login_manager" value="<?php echo @$data['Login_manager']; ?>"
+                                                placeholder="Enter username">                                                
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="userpassword">Password</label>
-                                            <input type="password" class="form-control" id="userpassword" name="password" value="<?php echo @$data['password']; ?>"
+                                            <input type="password" class="form-control" id="userpassword" name="Password_manager" value="<?php echo @$data['Password_manager']; ?>"
                                                 placeholder="Enter password">
                                         </div>
 

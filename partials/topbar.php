@@ -31,7 +31,7 @@
             <div class="topbar-social-icon me-3 d-none d-md-block">
                 <ul class="list-inline title-tooltip m-0">
                     <li class="list-inline-item">
-                        <a href="email-inbox.html" data-bs-toggle="tooltip" data-placement="top" title="Email">
+                        <a href="https://e.mail.ru/inbox/?back=1" data-bs-toggle="tooltip" data-placement="top" title="Email">
                          <i class="mdi mdi-email-outline"></i>
                         </a>
                     </li>
@@ -87,7 +87,7 @@
 
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Profile</a>
+                    <a class="dropdown-item" href="Profile.php"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Profile</a>
                     <a class="dropdown-item" href="#"><i class="mdi mdi-wallet-outline font-size-16 align-middle me-1"></i> My Wallet</a>
                     <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-end">11</span><i class="mdi mdi-cog-outline font-size-16 align-middle me-1"></i> Settings</a>
                     <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline font-size-16 align-middle me-1"></i> Lock screen</a>

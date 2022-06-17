@@ -33,7 +33,7 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html" class="waves-effect">
+                    <a href="calendar.php" class="waves-effect">
                         <i class="dripicons-calendar"></i>
                         <span>Calendar</span>
                     </a>

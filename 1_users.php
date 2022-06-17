@@ -58,16 +58,12 @@ if (isset($_POST['delete-submit'])) {
 
         <?php include "partials/topbar.php" ?>
         <?php include "partials/sidebar.php" ?>
-
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
-
-                <?php include "partials/page-title.php" ?>
+              <?php include "partials/page-title.php" ?>
                 <!-- @@include("partials/page-title.html", {"pagetitle": "Morvin", "subtitle":"Dashboard" ,"title":"Dashboard"}) -->
 
 
@@ -92,18 +88,13 @@ if (isset($_POST['delete-submit'])) {
                 <div class="container-fluid">
                     <div class="page-content-wrapper">
                         <div class="row">
-
 <!-- ============================================================== -->
-
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
-            
                                             <h4 class="header-title">Пользователи</h4>
-                                            <p class="card-title-desc">Учетные записи и параметры пользователей системы.</p>
-                                            
-                                            <button class="btn btn-primary btn-lg mb-2" data-toggle="modal" data-target="#Modal"><i class="dripicons-plus"></i></button>
-            
+                                            <p class="card-title-desc">Учетные записи и параметры пользователей системы.</p> 
+                                            <button class="btn btn-primary btn-lg mb-2" data-toggle="modal" data-target="#Modal"><i class="dripicons-plus"></i></button>          
                                             <table id="datatable" class="table table-bordered dt-responsive nowrap table-sm table-striped" style="border-collapse: collapse; border-spacing: 0; width: 100%; vertical-align: middle;">
                                                 <thead>
                                                 <tr>
@@ -138,14 +129,11 @@ if (isset($_POST['delete-submit'])) {
                                                         <?php require 'partials/modal.php'; ?>
                                                     </td>
                                                 </tr> <?php } ?>
-
                                                 </tbody>
                                             </table>
-            
                                         </div> <!-- card-body -->
                                     </div> <!-- card -->
                                 </div> <!-- col-12 -->
-
 <!-- ============================================================== -->
 
                         </div> <!-- row -->

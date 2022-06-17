@@ -1,0 +1,346 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: "Montserrat", sans-serif;
+	background-color:rgb(169, 118, 250);
+}
+
+/* Button все кнопки */
+button{
+	border-radius: 15px;
+	border: 1px solid rgb(118, 136, 236);
+	padding: 10px 20px;
+	color: rgb(82, 98, 189);
+	background:rgb(174, 183, 236);
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color .5s, color .5s;
+	margin-left: 25px;
+	text-decoration:underline;
+}
+button:hover{
+	background-color: rgb(255, 255, 255);
+	
+
+}
+button h4{
+	color:rgb(173, 0, 66);
+	text-decoration:underline;
+}
+/* Header голова сайта */
+header{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+}
+header img{
+	width: 200px;
+}
+header div{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ppx-100{
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.px-100{
+	padding-left: 500px;
+	padding-right: 100px;
+}
+.py-50{
+	padding-top: 20px;
+	padding-bottom:40px; 
+}
+header p{
+	font-size: 20px;
+	color: rgb(255, 158, 166);
+	text-shadow: black 5px 5px 5px;
+}
+
+/* Welcome  начало и основная часть отображения*/
+.welcome{
+	background-image: url(../Media/Images/bgim.jpg);
+	height: 100vh;
+	background-size: cover;
+	margin-top: -150px;
+	
+	padding-top: 15%;
+	
+	
+}
+.welcome h1{
+	font-size: 75px;
+	padding-bottom: 20px;
+	color:rgb(255, 158, 166);
+	text-shadow: rgb(155, 33, 33) 5px 5px 18px;
+}	
+.welcome p{
+	font-size:45px;
+	width: 60%;
+	margin-left: 15%;
+	text-shadow: rgb(255, 0, 0) 2px 5px 5px;
+	color:rgb(255, 158, 166);
+	
+
+}
+
+/* product блок с достижениями*/
+.product-item{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+	
+	
+}
+
+.product{
+	background-color: rgb(169, 118, 250);
+}
+
+.product-item img{
+	width: 200px;
+	height: 200px;
+	border-radius: 80px;
+	background-color: black;
+}
+
+.product-items{
+	text-align: center;
+	width: 400px;
+	margin-bottom: 40px;
+}
+
+
+
+.product-items h4{
+	color: orange;
+	font-size: 25px;
+	margin-top: 20px;
+}
+
+.product-items p{
+	font-size: 20px;
+    color: rgba(51, 255, 0, 0.596);
+	text-shadow: black 5px 5px 20px ;
+}
+
+.product h1{
+	color: rgb(255, 255, 255);
+	font-size: 30px;
+	text-align: center;
+	margin-top: 30px;
+	text-shadow: rgb(255, 54, 54) 2px 2px 2px;
+	
+}
+.product h2{
+	color: rgb(255, 255, 255);
+	font-size: 30px;
+	text-align: center;
+	margin-top: 0px;
+	text-shadow: black 5px 5px 10px;
+}
+
+.product p{
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 30px ;	
+	margin-top: 15px;
+	color: darkmagenta;
+}
+
+/* product2 блок "Вступай в наши ряды"*/
+
+.product2{
+	background-color: rgb(118, 136, 236);
+	width: 100%;
+}
+
+.product2 h2{
+	text-align: center;
+	font-size: 30px;
+	color: orange;
+	margin-top: 30px;
+	
+}
+
+.product2 .filter{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 30px;
+}
+
+.product2 .filter .activ{
+	background-color: orange;
+	color: black;
+}
+
+.product2-item{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.product2-items{
+	background-color: rgb(118, 136, 236);
+	border-radius: 65px;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	margin-bottom: 50px;
+	transition: all .30s;
+}
+
+.product2-items img{
+	width: 300px;
+	height: 250px;
+	margin-bottom: 40px;
+	margin-left: 24px;
+    border-radius: 39px;
+}
+
+.product2-items:hover{
+	box-shadow: 5px 5px 20px rgb(255, 255, 255);
+	transform: scale(1.01);
+}
+
+.akk{
+	display: flex;
+	justify-content: space-between;
+	padding: 3px 20px;
+}
+
+.price{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px 20px;
+}
+
+.akk p:first-child{
+	font-weight: bold ;
+}
+
+.price p{
+	color: rgb(253, 236, 0);
+	text-decoration:overline;
+}
+
+.price p{
+  font-weight: bold;
+}
+.product2 h2{
+	color: rgb(73, 73, 73);
+	text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+}
+header a{
+	color: rgb(255, 255, 255);
+}
+.product-item button{
+	border-radius: 15px;
+	border: 1px solid rgb(255, 0, 0);
+	padding: 10px 20px;
+	color: rgb(255, 255, 255);
+	background: space;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color .5s, color .5s;
+	margin-left: 50px;
+	
+}
+.product-item button:hover{
+	background-color: rgb(118, 136, 236);
+	color:rgb(164, 175, 243);
+	
+}
+.product a{
+	color: rgb(255, 255, 255);
+}
+/*кнопка "ВВерх" */
+.vv button{
+background:rgb(0, 0, 0);
+margin:0 auto;
+
+margin: 0 auto;
+}
+/*кнопка "ВВерх" */
+.vv button:hover{
+background:	rgb(214, 214, 214);
+}
+.zak{
+	margin-right: 25px;
+}
+/* product3 блок с последующими соревнованиями */
+.product-item3{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+	
+	
+}
+.product3{
+	background-color: rgb(169, 118, 250);
+	
+}
+
+.product-items3 img{
+	width: 600px;
+	height: 500px;
+	margin-bottom: 40px;
+	margin:0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.product-items3{
+	margin-left: 10px;
+	margin-right: 50px;
+	flex-wrap: wrap;
+}
+.product3 h4{
+	text-align: center;
+	font-size: 20px;
+	color: rgb(255, 158, 166);
+	text-shadow: rgb(255, 54, 54) 2px 2px 2px;
+	margin-top: 30px;
+	
+}
+.product3 h1{
+	text-align: center;
+	text-shadow: rgb(255, 54, 54) 2px 2px 2px;
+	color: rgb(252, 170, 137);
+	margin-top: 30px;
+	margin-bottom: 30px;
+	
+}
+.product3 p{
+	font-size: 15px;
+	text-align: center;
+	margin-bottom: 30px ;	
+	margin-top: 15px;
+	color: rgb(255, 255, 255);
+	text-shadow: black 2px 1px 2px;
+}
+.product3 h5{
+	text-align: center;
+	color: rgb(0, 0, 0);
+	text-shadow: tomato 3px 1px 3px;
+}
+.vv{
+	display: grid;
+	margin: 0 auto;
+}

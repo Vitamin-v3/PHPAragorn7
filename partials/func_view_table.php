@@ -63,8 +63,7 @@ function f_view_table ( $pdo, $db, $title, $title_comment)
                                         <?php
                                         $sql_col = $pdo->prepare("DESC $db"); // выбираем названия колонок из таблицы
                                         $sql_col->execute();
-                                        $result_col = $sql_col->fetchAll();
-                                
+                                        $result_col = $sql_col->fetchAll();                                
                                         foreach ($result_col as $value_col) { ?>
                                         <th><?=$value_col[0] ?></th>
                                         <?php } ?>

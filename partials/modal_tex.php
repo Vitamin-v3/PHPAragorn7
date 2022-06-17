@@ -4,7 +4,7 @@
     <div class="modal-content shadow">
 
         <div class="modal-header">
-            <h5 class="modal-title">Добавить пользователя</h5>
+            <h5 class="modal-title">Добавить техпроцесс</h5>
             <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -15,22 +15,6 @@
                 <div class="form-group">
                     <input type="text" class="form-control mb-2" name="name" value="" placeholder="name">
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="login" value="" placeholder="login">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="password" value="" placeholder="password">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="k_press" value="" placeholder="k_press">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="k_papers" value="" placeholder="k_papers">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="limit_oplata" value="" placeholder="limit_oplata">
-                </div>
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                     <button type="submit" name="create-submit" class="btn btn-primary">Добавить</button>
@@ -57,21 +41,6 @@
           <form action="?id=<?=$value['id'] ?>" method="post">
                 <div class="form-group">
                     <input type="text" class="form-control mb-2" name="name" value="<?=$value['name'] ?>" placeholder="name">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="login" value="<?=$value['login'] ?>" placeholder="login">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="password" value="<?=$value['password'] ?>" placeholder="password">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="k_press" value="<?=$value['k_press'] ?>" placeholder="k_press">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="k_papers" value="<?=$value['k_papers'] ?>" placeholder="k_papers">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="limit_oplata" value="<?=$value['limit_oplata'] ?>" placeholder="limit_oplata">
                 </div>
               	<div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>

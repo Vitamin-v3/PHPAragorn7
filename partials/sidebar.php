@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
 
@@ -11,7 +12,17 @@
                     <span class="avatar-online bg-success"></span>
                 </div>
                 <div class="user-info">
-                    <h5 class="mt-3 font-size-16 text-white">Vitaly Olshevskiy</h5>
+                    <h5 class="mt-3 font-size-16 text-white">
+                        <?
+                        if(isset($_POST["Login_manager"]))
+                            {
+                                $name = $_POST["Login_manager"];
+                                echo 'asdasdAS',$name;
+                            } 
+                                                echo '<pre>';
+                        print_r( $_POST["Login_manager"] );        
+                        echo '</pre>';
+                        ?></h5>
                     <span class="font-size-13 text-white-50">Administrator</span>
                 </div>
             </div>
@@ -33,7 +44,7 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html" class="waves-effect">
+                    <a href="" class="waves-effect">
                         <i class="dripicons-calendar"></i>
                         <span>Calendar</span>
                     </a>
@@ -42,13 +53,12 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-cart"></i>
-                        <span>Справочники</span>
-                    </a>
+                        <span>Справочники</span></a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="1_users.php">Пользователи</a></li>
-                        <li><a href="ecommerce-product-detail.html">Техпроцессы</a></li>
+                        <li><a href="ecommerce-product-detail.php">Техпроцессы</a></li>
                         <li><a href="3_papers.php">Бумага</a></li>
-                        <li><a href="4_zakaz.php">Заказы</a></li>
+                        <li><a href="4_zakaz.php">Работники</a></li>
                         <li><a href="ecommerce-cart.html">Cart</a></li>
                         <li><a href="ecommerce-checkout.html">Checkout</a></li>
                         <li><a href="ecommerce-shops.html">Shops</a></li>
