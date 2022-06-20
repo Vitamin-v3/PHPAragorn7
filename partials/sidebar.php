@@ -43,9 +43,9 @@
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="Paper.php" class="waves-effect">
                         <i class="dripicons-calendar"></i>
-                        <span>Calendar</span>
+                        <span>Бумага</span>
                     </a>
                 </li>
 

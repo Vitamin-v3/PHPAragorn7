@@ -1,38 +1,45 @@
 <?php
 require 'partials/db.php';
 
-$name = $_POST['name'];
-$login = $_POST['login'];
-$password = $_POST['password'];
-$k_press = $_POST['k_press'];
-$k_papers = $_POST['k_papers'];
-$limit_oplata = $_POST['limit_oplata'];
+$id=$_POST['Id_Client'];
+$name = $_POST['Name_client'];
+$login = $_POST['Login_client'];
+$password = $_POST['Password_client'];
+$mail = $_POST['Mail_client'];
+$phone = $_POST['Phone_client'];
+$contactperson = $_POST['ContactPerson'];
+$phonecontactperson = $_POST['Phone_ContactPerson'];
+$contractor= $_POST['Contractor'];
+$id_discount= $_POST['Id_Discount'];
 
 // Create
+$get_id = $_GET['Id_Client'];
 if (isset($_POST['create-submit'])) {
-    $sql = ("INSERT INTO clients_table(`name`, `login`, `password`, `k_press`, `k_papers`, `limit_oplata`) VALUES(?,?,?,?,?,?)");
+    $sql = ("INSERT INTO client(`Name_client`, `Login_client`, `Password_client`, `Mail_client`, `Phone_client`, `ContactPerson`, `Phone_ContactPerson`, `Contractor`, `Id_Discount`) VALUES(?,?,?,?,?,?,?,?,?)");
     $query = $pdo->prepare($sql);
-    $query->execute([$name, $login, $password, $k_press, $k_papers, $limit_oplata]);
+    $query->execute([$name, $login, $password, $mail, $phone, $contactperson, $phonecontactperson, $contractor, $id_discount]);
 }
 
 // Read
-$sql = $pdo->prepare("SELECT * FROM clients_table");
+$sql = $pdo->prepare("SELECT * FROM client");
 $sql->execute();
 $result = $sql->fetchAll();
 
 // Update
-$get_id = $_GET['id'];
+$get_id = $_GET['Id_Client'];
 if (isset($_POST['edit-submit'])) {
-    $sqll = "UPDATE clients_table SET name=?, login=?, password=?, k_press=?, k_papers=?, limit_oplata=? WHERE id=?";
+    $sqll = "UPDATE client SET Name_client=? , Login_client=? , Password_client=? , Mail_client=? , Phone_client=? , ContactPerson=?, Phone_ContactPerson=?, Contractor=? WHERE Id_Client=?";
     $querys = $pdo->prepare($sqll);
-    $querys->execute([$name, $login, $password, $k_press, $k_papers, $limit_oplata, $get_id]);
+    $querys->execute([$name, $login, $password, $mail, $phone, $contactperson, $phonecontactperson, $contractor, $get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);
     echo '<META HTTP-EQUIV="Refresh" CONTENT="0">';     // обновляем страницу
 }
 
 // Delete
-if (isset($_POST['delete-submit'])) {
-    $sql = "DELETE FROM clients_table WHERE id=?";
+$get_id = $_GET['Id_Client'];
+if (isset($_POST['delete-submit']))
+ {
+    $sql = "DELETE FROM client WHERE Id_Client=?";
     $query = $pdo->prepare($sql);
     $query->execute([$get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);
@@ -102,33 +109,47 @@ if (isset($_POST['delete-submit'])) {
                                                     <th>Name</th>
                                                     <th>Login</th>
                                                     <th>Password</th>
-                                                    <th>K_press</th>
-                                                    <th>K_papers</th>
-                                                    <th>Limit_oplata</th>
+                                                    <th>Mail</th>
+                                                    <th>Phone_client</th>
+                                                    <th>ContactPerson</th>
+                                                    <th>Подрядчик</th>
                                                     <th>Действие</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
 
-                                                <?php foreach ($result as $value) { ?>
+<!--
+//$name = $_POST['Name_client'];
+//$login = $_POST['Login_client'];
+//$password = $_POST['Password_client'];
+//$mail = $_POST['Mail_client'];
+//$phone = $_POST['Phone_client'];
+//$contactperson = $_POST['ContactPerson'];
+//$phonecontactperson = $_POST['Phone_ContactPerson'];
+//$contractor= $_POST['Contractor']; 
+-->
+                                                <?php foreach ($result as $value)
+                                                 { ?>
                                                 <tr>
-                                                    <td><?=$value['id'] ?></td>
-                                                    <td><?=$value['name'] ?></td>
-                                                    <td><?=$value['login'] ?></td>
-                                                    <td><?=$value['password'] ?></td>
-                                                    <td><?=$value['k_press'] ?></td>
-                                                    <td><?=$value['k_papers'] ?></td>
-                                                    <td><?=$value['limit_oplata'] ?></td>
+                                                    <td><?=$value['Id_Client'] ?></td>
+                                                    <td><?=$value['Name_client'] ?></td>
+                                                    <td><?=$value['Login_client'] ?></td>
+                                                    <td><?=$value['Password_client'] ?></td>
+                                                    <td><?=$value['Mail_client'] ?></td>
+                                                    <td><?=$value['Phone_client'] ?></td>
+                                                    <td><?=$value['ContactPerson'] ?></td>
+                                                    <td><?=$value['Contractor'] ?></td>
                                                     <td>
-                                                        <a href="?edit=<?=$value['id'] ?>" class="btn btn-primary btn-sm mb-0" 
-                                                            data-toggle="modal" data-target="#editModal<?=$value['id'] ?>">
+                                                        <a href="?edit=<?=$value['Id_Client'] ?>" class="btn btn-primary btn-sm mb-0" 
+                                                            data-toggle="modal" data-target="#editModal<?=$value['Id_Client'] ?>">
                                                             <i class="dripicons-document-edit"></i></a> 
-                                                        <a href="?delete=<?=$value['id'] ?>" class="btn btn-danger btn-sm mb-0" 
-                                                            data-toggle="modal" data-target="#deleteModal<?=$value['id'] ?>">
+                                                        <a href="?delete=<?=$value['Id_Client'] ?>" class="btn btn-danger btn-sm mb-0" 
+                                                            data-toggle="modal" data-target="#deleteModal<?=$value['Id_Client'] ?>">
                                                             <i class="dripicons-trash"></i></a>
                                                         <?php require 'partials/modal.php'; ?>
                                                     </td>
-                                                </tr> <?php } ?>
+                                                </tr> <?php 
+                                            } ?>
                                                 </tbody>
                                             </table>
                                         </div> <!-- card-body -->
