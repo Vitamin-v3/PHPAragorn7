@@ -29,9 +29,9 @@ $result = $sql->fetchAll();
 // Update
 $get_id = $_GET['Id_Orders'];
 if (isset($_POST['edit-submit'])) {
-    $sqll = "UPDATE orders_args SET  Date_Done_Order =?, Id_Order_status=?, Id_managers=?, Name_Order=?, Comment_order=?, Path_order=? WHERE Id_Orders=?";
+    $sqll = "UPDATE orders_args SET  Date_Done_Order =? , Id_Order_status=? , Id_managers=? , Name_Order=?, Comment_order=?, Path_order=? WHERE Id_Orders=?";
     $querys = $pdo->prepare($sqll);
-    $querys->execute([$Date_Order, $Date_Done_Order, $Id_Order_status, $Id_Client, $Id_managers, $Name_Order, $Comment_order, $Path_order, $Id_сalculation_paid, $get_id]);
+    $querys->execute([$Date_Done_Order, $Id_Order_status, $Id_managers, $Name_Order, $Comment_order, $Path_order, $get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);
     echo '<META HTTP-EQUIV="Refresh" CONTENT="0">';     // обновляем страницу
 }
@@ -40,7 +40,7 @@ if (isset($_POST['edit-submit'])) {
 $get_id = $_GET['Id_Orders'];
 if (isset($_POST['delete-submit'])) 
 {
-    $sql = "DELETE FROM order_args WHERE Id_Orders=?";
+    $sql = "DELETE FROM `orders_args` WHERE Id_Orders=?";
     $query = $pdo->prepare($sql);
     $query->execute([$get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);

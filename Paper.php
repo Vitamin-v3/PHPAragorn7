@@ -1,41 +1,40 @@
 <?php
 require 'partials/db.php';
-
-$name = $_POST['name'];                         //наименование бумаги
-$type = $_POST['type'];                         //тип бумаги
-$x_size = $_POST['x_size'];                     // ширина листа, мм
-$y_size = $_POST['y_size'];                     // высота листа, мм
-$weight = $_POST['weight'];                     // плотность, г/кв.м
-$thickness = $_POST['thickness'];               // толщина листа, мкн
-$price_sheet = $_POST['price_sheet'];           // Стоимость листа
-$price_range = $_POST['price_range'];           // ценовой диапазон
-$k_up_paper = $_POST['k_up_paper'];             // коэффициент накрутки на бумагу
-$one_side = $_POST['one_side'];                 // 1-сторонняя (true), 2-стороняя (false)
-$roll = $_POST['roll'];                         // Рулонная (true), листовая (false)
-$const = $_POST['const'];                       // Постоянная (1), временная (2), удалённая (0)
-$tex_process_var = $_POST['tex_process_var'];   // Техпроцессы использования (бинарный шаблон)
-$amount = $_POST['amount'];                     // Текущий остаток листов (для листовых) или м (для рулонных)
+$id=$_POST['Id_paper'];
+$name = $_POST['Name_paper'];                         //наименование бумаги
+$type = $_POST['Id_paper_type'];                         //тип бумаги
+$x_size = $_POST['X_size_paper'];                     // ширина листа, мм
+$y_size = $_POST['Y_size_paper'];                     // высота листа, мм
+$density = $_POST['Paper_density'];                     // плотность, г/кв.м
+$thickness = $_POST['Thickness'];               // толщина листа, мкн
+$price_sheet = $_POST['Id_Price_range'];         // ценовой диапазон
+$coeff = $_POST['Сoefficient_cheating'];    // коэффициент накрутки на бумагу
+$two_sides = $_POST['Two_sides'];                 // 1-сторонняя (true), 2-стороняя (false)
+$roll = $_POST['Sheet_roll'];                         // Рулонная (true), листовая (false)
+$permanent = $_POST['Permanent'];                       // Постоянная (1), временная (2), удалённая (0)
+$Number_sheets_stock = $_POST['Number_sheets_stock'];   // Техпроцессы использования (бинарный шаблон)
+$remaining_sheets = $_POST['Number_remaining_sheets'];                     // Текущий остаток листов (для листовых) или м (для рулонных)
 
 
 // Create
 if (isset($_POST['create-submit'])) {
-    $sql = ("INSERT INTO `papers`(`name`, `type`, `x_size`, `y_size`, `weight`, `thickness`, `price_sheet`, `price_range`, `k_up_paper`, `one_side`, `roll`, `const`, `tex_process_var`, `amount`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $sql = ("INSERT INTO `paper`(`Name_paper`, `Id_paper_type`, `X_size_paper`, `Y_size_paper`, `Paper_density`, `Thickness`, `Id_Price_range`, `Сoefficient_cheating`, `Two_sides`, `Sheet_roll`, `Permanent`, `Number_sheets_stock`, `Number_remaining_sheets`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
     $query = $pdo->prepare($sql);
-    $query->execute([$name, $type, $x_size, $y_size, $weight, $thickness, $price_sheet, $price_range, $k_up_paper, $one_side, $roll, $const, $tex_process_var, $amount]);
+    $query->execute([$name, $type, $x_size, $y_size, $density, $thickness, $price_sheet, $price_range, $coeff, $two_sides, $roll, $permanent, $Number_sheets_stock, $remaining_sheets]);
 }
 
 // Read
-$sql = $pdo->prepare("SELECT * FROM `papers`");
+$sql = $pdo->prepare("SELECT * FROM `paper`");
 $sql->execute();
 $result = $sql->fetchAll();
 
 
 // Update
-$get_id = $_GET['id'];
+$get_id = $_GET['Id_paper'];
 if (isset($_POST['edit-submit'])) {
-    $sqll = "UPDATE papers SET name=?, type=?, x_size=?, y_size=?, weight=?, thickness=?, price_sheet=?, price_range=?, k_up_paper=?, one_side=?, roll=?, const=?, tex_process_var=?, amount=? WHERE id=?";
+    $sqll = "UPDATE paper SET name=?, type=?, x_size=?, y_size=?, density=?, thickness=?, price_sheet=?, price_range=?, coeff=?, two_sides=?, roll=?, permanent=?, Number_sheets_stock=?, remaining_sheets=? WHERE id=?";
     $querys = $pdo->prepare($sqll);
-    $querys->execute([$name, $type, $x_size, $y_size, $weight, $thickness, $price_sheet, $price_range, $k_up_paper, $one_side, $roll, $const, $tex_process_var, $amount, $get_id]);
+    $querys->execute([$name, $type, $x_size, $y_size, $density, $thickness, $price_sheet, $price_range, $coeff, $two_sides, $roll, $permanent, $Number_sheets_stock, $remaining_sheets, $get_id]);
     //    header('Location: '. $_SERVER['HTTP_REFERER']);
     echo '<META HTTP-EQUIV="Refresh" CONTENT="0">';     // обновляем страницу
 }
@@ -43,7 +42,7 @@ if (isset($_POST['edit-submit'])) {
 
 // Delete
 if (isset($_POST['delete-submit'])) {
-    $sql = "DELETE FROM papers WHERE id=?";
+    $sql = "DELETE FROM paper WHERE id=?";
     $query = $pdo->prepare($sql);
     $query->execute([$get_id]);
     //    header('Location: '. $_SERVER['HTTP_REFERER']);
@@ -97,36 +96,64 @@ if (isset($_POST['delete-submit'])) {
                                             
                                             <button class="btn btn-primary btn-lg mb-3" data-toggle="modal" data-target="#Modal"><i class="dripicons-plus align-middle"></i></button>
             
-                                            <table id="datatable" class="table table-bordered dt-responsive nowrap table-sm table-striped" style="border-collapse: collapse; border-spacing: 0; width: 100%; vertical-align: middle;">
-                                                <thead>
+                                            <table id="datatable" class="table table-bordered dt-responsive nowrap table-sm table-striped" style="border-collapse: collapse; border-spacing: 0; width: 70%; vertical-align: middle;">
+                                            <thead>
                                                 <tr>
-                                                    <?php
-                                                    $sql_col = $pdo->prepare("DESC papers"); // выбираем названия колонок из таблицы
-                                                    $sql_col->execute();
-                                                    $result_col = $sql_col->fetchAll();
-                                                    
-                                                    foreach ($result_col as $value_col) { ?>
-                                                    <th><?=$value_col[0] ?></th>
-                                                    <?php } ?>
-                                                    <th>Действие</th>
-
+                                                    <th>Id</th>
+                                                    <th>Название</th>
+                                                    <th>Тип бумаги</th>
+                                                    <th>Х</th>
+                                                    <th>У</th>
+                                                    <th>Плотность</th>
+                                                    <th>Толщина</th>
+                                                    <th>Номер ценового диапазона</th>
+                                                    <th>Коэффициент накрутки на бумагу</th>
+                                                    <th>2-х сторонняя</th>
+                                                    <th>Рулонная</th>
+                                                    <th>Постоянная</th>
+                                                    <th>Кол-во листов на складе</th>
+                                                    <th>Минимальный остаток</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                <?php foreach ($result as $value) { ?>
-                                                <tr>
-
-                                                    <?php foreach ($result_col as $value_col) { ?>
-                                                    <td><?=$value[$value_col[0]] ?></td>
-                                                    <?php } ?>
-
+<!--$name = $_POST['Name_paper'];                         //наименование бумаги
+$type = $_POST['Id_paper_type'];                         //тип бумаги
+$x_size = $_POST['X_size_paper'];                     // ширина листа, мм
+$y_size = $_POST['Y_size_paper'];                     // высота листа, мм
+$density = $_POST['Paper_density'];                     // плотность, г/кв.м
+$thickness = $_POST['Thickness'];               // толщина листа, мкн
+$price_sheet = $_POST['Id_Price_range'];         // ценовой диапазон
+$coeff = $_POST['Сoefficient_cheating'];    // коэффициент накрутки на бумагу
+$two_sides = $_POST['Two_sides'];                 // 1-сторонняя (true), 2-стороняя (false)
+$roll = $_POST['Sheet_roll'];                         // Рулонная (true), листовая (false)
+$permanent = $_POST['Permanent'];                       // Постоянная (1), временная (2), удалённая (0)
+$Number_sheets_stock = $_POST['Number_sheets_stock'];   // Техпроцессы использования (бинарный шаблон)
+$remaining_sheets = $_POST['Number_remaining_sheets']; -->
+                                                <?php foreach ($result as $value)
+                                                 { ?>
+                                                <tr>                                               
+                                                    <td><?=$value['Id_paper'] ?></td>
+                                                    <td><?=$value['Name_paper'] ?></td>
+                                                    <td><?=$value['Id_paper_type'] ?></td>
+                                                    <td><?=$value['X_size_paper'] ?></td>
+                                                    <td><?=$value['Y_size_paper'] ?></td>
+                                                    <td><?=$value['Thickness'] ?></td>
+                                                    <td><?=$value['Id_Price_range'] ?></td>
+                                                    <td><?=$value['Сoefficient_cheating'] ?></td>
+                                                    <td><?=$value['Two_sides'] ?></td>
+                                                    <td><?=$value['Sheet_roll'] ?></td>
+                                                    <td><?=$value['Permanent'] ?></td>
+                                                    <td><?=$value['Sheet_roll'] ?></td>
+                                                    <td><?=$value['Number_sheets_stock'] ?></td>
+                                                    <td><?=$value['Number_remaining_sheets'] ?></td>
+                                                
                                                     <td>
-                                                        <a href="?edit=<?=$value['id'] ?>" class="btn btn-outline-secondary btn-sm mb-0" 
-                                                            data-toggle="modal" data-target="#editModal<?=$value['id'] ?>">
+                                                        <a href="?edit=<?=$value['Id_paper'] ?>" class="btn btn-outline-secondary btn-sm mb-0" 
+                                                            data-toggle="modal" data-target="#editModal<?=$value['Id_paper'] ?>">
                                                             <i class="fas fa-pencil-alt"></i></a> 
-                                                        <a href="?delete=<?=$value['id'] ?>" class="btn btn-outline-danger btn-sm mb-0" 
-                                                            data-toggle="modal" data-target="#deleteModal<?=$value['id'] ?>">
+                                                    </td>
+                                                    <td>  <a href="?delete=<?=$value['Id_paper'] ?>" class="btn btn-outline-danger btn-sm mb-0" 
+                                                            data-toggle="modal" data-target="#deleteModal<?=$value['Id_paper'] ?>">
                                                             <i class="far fa-trash-alt"></i></a>
                                                         <?php require 'partials/modal-papers.php'; ?>
                                                     </td>

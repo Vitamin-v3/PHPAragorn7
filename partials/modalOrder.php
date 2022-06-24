@@ -46,8 +46,6 @@
                 <div class="form-group">
                     <input type="text" class="form-control mb-2" name="Id_сalculation_paid" value="" placeholder="Id_сalculation_paid">
                 </div>
-
-
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                     <button type="submit" name="create-submit" class="btn btn-primary">Добавить</button>
