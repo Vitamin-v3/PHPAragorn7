@@ -18,7 +18,7 @@ $get_id = $_GET['Id_Orders'];
 if (isset($_POST['create-submit'])) {
     $sql = ("INSERT INTO orders_args(`Date_Order`, `Date_Done_Order`, `Id_Order_status`, `Id_Client`, `Id_managers`, `Name_Order`, `Comment_order`, `Path_order`, `Id_сalculation_paid` ) VALUES(?,?,?,?,?,?,?,?,?)");
     $query = $pdo->prepare($sql);
-    $query->execute([ $Date_Order,  $Date_Done_Order, $Id_Order_status, $Id_Client,$Id_managers, $Name_Order , $Comment_order ,$Path_order ,$Id_сalculation_paid, $get_id]);
+    $query->execute([ $Date_Order,  $Date_Done_Order, $Id_Order_status, $Id_Client, $Id_managers, $Name_Order , $Comment_order ,$Path_order ,$Id_сalculation_paid]);
 }
 
 // Read
@@ -31,7 +31,7 @@ $get_id = $_GET['Id_Orders'];
 if (isset($_POST['edit-submit'])) {
     $sqll = "UPDATE orders_args SET  Date_Done_Order =?, Id_Order_status=?, Id_managers=?, Name_Order=?, Comment_order=?, Path_order=? WHERE Id_Orders=?";
     $querys = $pdo->prepare($sqll);
-    $querys->execute([$Date_Order,$Date_Done_Order,$Id_Order_status,$Id_Client,$Id_managers,$Name_Order ,$Comment_order ,$Path_order ,$Id_сalculation_paid, $get_id]);
+    $querys->execute([$Date_Order, $Date_Done_Order, $Id_Order_status, $Id_Client, $Id_managers, $Name_Order, $Comment_order, $Path_order, $Id_сalculation_paid, $get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);
     echo '<META HTTP-EQUIV="Refresh" CONTENT="0">';     // обновляем страницу
 }
@@ -147,8 +147,7 @@ $Id_сalculation_paid= $_POST['Id_сalculation_paid']; -->
                                                             <i class="dripicons-document-edit"></i></a> 
                                                     </td>
                                                     <td>
-                                                        
-                                                        <a href="?delete=<?=$value['Id_Orders'] ?>" class="btn btn-danger btn-sm mb-0" 
+                                                            <a href="?delete=<?=$value['Id_Orders'] ?>" class="btn btn-danger btn-sm mb-0" 
                                                             data-toggle="modal" data-target="#deleteModal<?=$value['Id_Orders'] ?>">
                                                             <i class="dripicons-trash"></i></a>
                                                         <?php require 'partials/modalOrder.php'; ?>

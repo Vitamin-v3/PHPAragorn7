@@ -9,7 +9,7 @@
         <div class="user-sidebar text-center">
             <div class="dropdown">
                 <div class="user-img">
-                    <img src="assets/images/users/vit.jpg" alt="" class="rounded-circle">
+                    <img src="assets/images/pic.png" alt="" class="rounded-circle">
                     <span class="avatar-online bg-success"></span>
                 </div>
                 <div class="user-info">

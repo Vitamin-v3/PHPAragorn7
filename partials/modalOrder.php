@@ -72,10 +72,7 @@
         </div>
         <div class="modal-body">
           <form action="?Id_Orders=<?=$value['Id_Orders'] ?>" method="post">
-               <div class="form-group">
-                    <input type="text" class="form-control mb-2" name="Id_Orders" value="<?=$value['Id_Orders'] ?>" placeholder="Id_Orders">
-                </div>
-                
+               
                 <div class="form-group">
                     <input type="text" class="form-control mb-2" name="Date_Done_Order" value="<?=$value['Date_Done_Order'] ?>" placeholder="Date_Done_Order">
                 </div>
@@ -95,8 +92,6 @@
                 <div class="form-group">
                     <input type="text" class="form-control mb-2" name="Path_order" value="<?=$value['Path_order'] ?>" placeholder="Path_order">
                 </div>
-                
-
               	<div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
               		<button type="submit" name="edit-submit" class="btn btn-primary">Обновить</button>
