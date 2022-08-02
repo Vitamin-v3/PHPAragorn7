@@ -27,7 +27,7 @@
 
                 <li>
                     <a href="main.php" class="waves-effect">
-                        <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end">3</span>
+                        <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span>Заказы</span>
                     </a>
                 </li>
@@ -47,7 +47,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="ecommerce-products.html">Пользователи</a></li>
                         <li><a href="ecommerce-product-detail.html">Техпроцессы</a></li>
-                        <li><a href="ecommerce-orders.html">Бумага</a></li>
+                        <li><a href="Paper.php">Бумага</a></li>
                         <li><a href="ecommerce-customers.html">Customers</a></li>
                         <li><a href="ecommerce-cart.html">Cart</a></li>
                         <li><a href="ecommerce-checkout.html">Checkout</a></li>

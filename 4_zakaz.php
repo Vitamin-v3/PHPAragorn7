@@ -1,27 +1,32 @@
 <?php
 require 'partials/db.php';
 
-$id = $_POST['id'];
-$name = $_POST['name'];
-$access_num = $_POST['access_num'];
+$id = $_POST['Id_manager'];
+$name = $_POST['Name_manager'];
+$login = $_POST['Login_manager'];
+$password = $_POST['Password_manager'];
+$mail = $_POST['Mail_manager'];
+$phone = $_POST['Phone_manager'];
+$id_access = $_POST['id_access'];
+
 
 
 // Create
 if (isset($_POST['create-submit'])) {
-    $sql = ("INSERT INTO access(`id`, `name`, `access_num`) VALUES(?,?,?)");
+    $sql = ("INSERT INTO managers(`Id_manager`, `Name_manager`, `Login_manager`, `Password_manager`,`Mail_manager`,`Phone_manager`,`id_access`) VALUES(?,?,?,?,?,?,?)");
     $query = $pdo->prepare($sql);
-    $query->execute([$id, $name, $access_num]);
+    $query->execute([$id, $name, $login,$password,$mail,$phone,$id_access]);
 }
 
 // Read
-$sql = $pdo->prepare("SELECT * FROM access");
+$sql = $pdo->prepare("SELECT * FROM managers");
 $sql->execute();
 $result = $sql->fetchAll();
 
 // Update
 $get_id = $_GET['id'];
 if (isset($_POST['edit-submit'])) {
-    $sqll = "UPDATE access SET name=?, access_num=? WHERE id=?";
+    $sqll = "UPDATE managers SET Name_manager=?, access_num=? , Login_manager=? , Password_manager=? , Mail_manager=? ,Phone_manager=? , id_access=?  WHERE Id_managers=?";
     $querys = $pdo->prepare($sqll);
     $querys->execute([$name, $access_num,$get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);
@@ -30,7 +35,7 @@ if (isset($_POST['edit-submit'])) {
 
 // Delete
 if (isset($_POST['delete-submit'])) {
-    $sql = "DELETE FROM access WHERE id=?";
+    $sql = "DELETE FROM managers WHERE id=?";
     $query = $pdo->prepare($sql);
     $query->execute([$get_id]);
     //header('Location: '. $_SERVER['HTTP_REFERER']);
@@ -91,15 +96,19 @@ if (isset($_POST['delete-submit'])) {
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Name</th>
-                                                    <th>Access num</th>                                            
+                                                    <th>Login</th>
+                                                    <th>Mail</th>
+                                                    <th>Phone</th>                                            
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php foreach ($result as $value) { ?>
                                                 <tr>                                        
-                                                    <td><?=$value['id'] ?></td>
-                                                    <td><?=$value['name'] ?></td>
-                                                    <td><?=$value['access_num'] ?></td>                                        
+                                                    <td><?=$value['Id_managers'] ?></td>
+                                                    <td><?=$value['Name_manager'] ?></td>
+                                                    <td><?=$value['Login_manager'] ?></td>
+                                                    <td><?=$value['Mail_manager'] ?></td>
+                                                    <td><?=$value['Phone_manager'] ?></td>                                          
                                                     <td>
                                                         <a href="?edit=<?=$value['id'] ?>" class="btn btn-primary btn-sm mb-0" 
                                                             data-toggle="modal" data-target="#editModal<?=$value['id'] ?>">
