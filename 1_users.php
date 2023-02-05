@@ -13,7 +13,7 @@ $contractor= $_POST['Contractor'];
 $id_discount= $_POST['Id_Discount'];
 
 // Create
-$get_id = $_GET['Id_Client'];
+//$get_id = $_GET['Id_Client']; Зачем?
 if (isset($_POST['create-submit'])) {
     $sql = ("INSERT INTO client(`Name_client`, `Login_client`, `Password_client`, `Mail_client`, `Phone_client`, `ContactPerson`, `Phone_ContactPerson`, `Contractor`, `Id_Discount`) VALUES(?,?,?,?,?,?,?,?,?)");
     $query = $pdo->prepare($sql);
