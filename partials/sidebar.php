@@ -1,5 +1,6 @@
 <?php session_start();?>
-
+<?php
+require 'partials/db.php';?>
 <!-- ========== Left Sidebar Start ========== -->
 <div class="vertical-menu">
 
@@ -9,7 +10,7 @@
         <div class="user-sidebar text-center">
             <div class="dropdown">
                 <div class="user-img">
-                    <img src="assets/images/users/vit.jpg" alt="" class="rounded-circle">
+                    <img src="assets/images/pic.png" alt="" class="rounded-circle">
                     <span class="avatar-online bg-success"></span>
                 </div>
                 <div class="user-info">
@@ -37,15 +38,18 @@
 
                 <li>
                     <a href="main.php" class="waves-effect">
-                        <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end">3</span>
+                        <i class="dripicons-home"></i><span class="badge rounded-pill bg-info float-end"><?php $sql = $pdo->prepare("SELECT * FROM orders_args");
+                                                                                                            $sql->execute();
+                                                                                                            $result2 = $sql->fetchAll();
+                                                                                                            echo count($result2)?></span>
                         <span>Заказы</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="Paper.php" class="waves-effect">
                         <i class="dripicons-calendar"></i>
-                        <span>Calendar</span>
+                        <span>Бумага</span>
                     </a>
                 </li>
 
@@ -56,7 +60,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="1_users.php">Пользователи</a></li>
                         <li><a href="ecommerce-product-detail.php">Техпроцессы</a></li>
-                        <li><a href="3_papers.php">Бумага</a></li>
+                        <li><a href="Paper.php">Бумага</a></li>
                         <li><a href="4_zakaz.php">Работники</a></li>
                         <li><a href="ecommerce-cart.html">Cart</a></li>
                         <li><a href="ecommerce-checkout.html">Checkout</a></li>

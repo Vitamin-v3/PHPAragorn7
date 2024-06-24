@@ -56,7 +56,7 @@ CREATE TABLE `1060_parameter` (
   `Lunch_time` time DEFAULT NULL,
   `Print_time` time DEFAULT NULL,
   `Chroma` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE `access_rights` (
   `Id` int NOT NULL,
   `Post` varchar(255) DEFAULT NULL,
   `Access code` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `access_rights`
@@ -93,7 +93,7 @@ CREATE TABLE `accounting_of_printed_sheets` (
   `Finish_datetime` datetime DEFAULT NULL,
   `Closing_datetime` datetime DEFAULT NULL,
   `Id_managers` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE `calculation_paid` (
   `OrderMarginPercentage` int NOT NULL,
   `OrderMarginInteger` int NOT NULL,
   `financial_cell_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `calculation_paid`
@@ -138,7 +138,7 @@ CREATE TABLE `client` (
   `Phone_ContactPerson` varchar(255) DEFAULT NULL,
   `Contractor` varchar(255) DEFAULT NULL,
   `Id_Discount` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `client`
@@ -161,7 +161,7 @@ CREATE TABLE `design_operation` (
   `Self_esteem` double DEFAULT NULL,
   `Estimated_amount` double DEFAULT NULL,
   `Sum_fact` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -179,7 +179,7 @@ CREATE TABLE `discound` (
   `Dis_Summa` tinyint(1) DEFAULT NULL,
   `Dis_PostPress` tinyint(1) DEFAULT NULL,
   `Dis_Grechiha` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `discound`
@@ -200,7 +200,7 @@ CREATE TABLE `financial_cell` (
   `current_number` int DEFAULT NULL,
   `BIC` int DEFAULT NULL,
   `correspondent_account` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `financial_cell`
@@ -223,7 +223,7 @@ CREATE TABLE `managers` (
   `Mail_manager` varchar(255) DEFAULT NULL,
   `Phone_manager` varchar(255) DEFAULT NULL,
   `id_access` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `managers`
@@ -242,7 +242,7 @@ INSERT INTO `managers` (`Id_managers`, `Name_manager`, `Login_manager`, `Passwor
 CREATE TABLE `name_price_range` (
   `Id_Name_Price_range` int NOT NULL,
   `name_Name_Price_range` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -256,7 +256,7 @@ CREATE TABLE `operations` (
   `Execution_Status` varchar(255) DEFAULT NULL,
   `Id_Tex_Process` int NOT NULL,
   `Id_Subcontracting` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -285,7 +285,7 @@ CREATE TABLE `operation_1060` (
   `Number_circulation_sheets_fact` double DEFAULT NULL,
   `Estimated_amount_paper` double DEFAULT NULL,
   `Estimated_cut_amount` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -304,7 +304,7 @@ CREATE TABLE `orders_args` (
   `Comment_order` varchar(255) DEFAULT NULL,
   `Path_order` text,
   `Id_сalculation_paid` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `orders_args`
@@ -322,7 +322,7 @@ INSERT INTO `orders_args` (`Id_Orders`, `Date_Order`, `Date_Done_Order`, `Id_Ord
 CREATE TABLE `order_status` (
   `Id_Order_status` int NOT NULL,
   `Condition_orders` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `order_status`
@@ -361,7 +361,7 @@ CREATE TABLE `paper` (
   `Permanent` tinyint(1) DEFAULT NULL,
   `Number_sheets_stock` int DEFAULT NULL,
   `Number_remaining_sheets` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -372,7 +372,7 @@ CREATE TABLE `paper` (
 CREATE TABLE `paper_type` (
   `Id_paper_type` int NOT NULL,
   `name_paper_type` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -385,7 +385,7 @@ CREATE TABLE `price_range` (
   `ID_Name_Price_range` int NOT NULL,
   `Price_kg` int DEFAULT NULL,
   `Date_recording` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -404,7 +404,7 @@ CREATE TABLE `subcontracting` (
   `amount_contractor_date` date DEFAULT NULL,
   `account_number` int NOT NULL,
   `financial_cell_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `subcontracting`
@@ -425,7 +425,7 @@ CREATE TABLE `tex_process` (
   `Id_1060_Parameter` int NOT NULL,
   `Id_printed_sheets` int NOT NULL,
   `id_operation_1060` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -438,7 +438,7 @@ CREATE TABLE `сost_sheet` (
   `Id_paper` int NOT NULL,
   `Cost_of_sheet` int DEFAULT NULL,
   `Recording_date_Sheet` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Индексы сохранённых таблиц
